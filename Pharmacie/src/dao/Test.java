@@ -6,6 +6,12 @@ public class Test {
         DaoUtilisateur daoUtilisateur = new DaoUtilisateur();
         daoUtilisateur.setUtilisateur(utilisateur);
 
+        if(daoUtilisateur.creerCompte()){
+            System.out.println("Compte cree avec succes");
+        }else{
+            System.out.println("Erreur lors de la creation du compte");
+        }
+
         if(daoUtilisateur.authentifier()){
             System.out.println("Authentification reussie");
         }else{

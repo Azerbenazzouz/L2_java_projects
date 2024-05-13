@@ -20,6 +20,7 @@ public class Utilisateur {
         this.email = email;
         this.motDePasse = hashMotDePasse(motDePasse);
         this.telephone = telephone;
+        this.role = role;
     }
 
     public Utilisateur(String nom, String email, String motDePasse, int telephone, String role) {
@@ -27,6 +28,7 @@ public class Utilisateur {
         this.email = email;
         this.motDePasse = hashMotDePasse(motDePasse);
         this.telephone = telephone;
+        this.role = role;
     }
 
     public Utilisateur(String email, String motDePasse) {
