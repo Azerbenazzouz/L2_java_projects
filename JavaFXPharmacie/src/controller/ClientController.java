@@ -61,6 +61,18 @@ public class ClientController {
         lister();
         remiseAzéro();
     }
+
+    @FXML
+    private void Consulter() {
+        String cin = this.tv.getSelectionModel().getSelectedItem().getId();
+        String nom = this.tv.getSelectionModel().getSelectedItem().getNom();
+        String adresse = this.tv.getSelectionModel().getSelectedItem().getAdresse();
+        String email = this.tv.getSelectionModel().getSelectedItem().getEmail();
+        Id.setText(cin);
+        Nom.setText(nom);
+        Adresse.setText(adresse);
+        Email.setText(email);
+    }
     
     @FXML
     private void GestionFacture(ActionEvent event) throws Exception {
