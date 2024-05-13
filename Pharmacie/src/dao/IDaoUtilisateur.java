@@ -5,9 +5,9 @@ public interface IDaoUtilisateur {
     
     public boolean authentifier();
     public boolean creerCompte();
-    public void modifierCompte();
+    public boolean modifierCompte(int id, Utilisateur utilisateur);
     public boolean supprimerCompte();
-    public Utilisateur consulterCompte();
-    public boolean modifierMotDePasse();
+    public Utilisateur consulterCompte(int id);
+    public boolean modifierMotDePasse(String newPass);
     
 }

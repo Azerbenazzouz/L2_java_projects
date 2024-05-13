@@ -65,26 +65,101 @@ public class DaoUtilisateur implements IDaoUtilisateur{
     }
 
     @Override
-    public void modifierCompte() {
-        // Implement the method here
+    public boolean modifierCompte(int id, Utilisateur utilisateur) {
+        try{
+            String sql = "SELECT * FROM utilisateur WHERE id = ?";
+            PreparedStatement pst = cnn.prepareStatement(sql);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                String sql2 = "UPDATE utilisateur SET nom = ?, email = ?, password = ?, telephone = ?, role = ? WHERE id = ?";
+                PreparedStatement pst2 = cnn.prepareStatement(sql2);
+                pst2.setString(1, utilisateur.getNom());
+                pst2.setString(2, utilisateur.getEmail());
+                pst2.setString(3, utilisateur.getMotDePasse());
+                pst2.setInt(4, utilisateur.getTelephone());
+                pst2.setString(5, utilisateur.getRole());
+                pst2.setInt(6, id);
+                int result = pst2.executeUpdate();
+                if(result > 0){
+                    return true;
+                }
+                pst2.close();
+            }
+            pst.close();
+        }catch(SQLException ex){
+            System.out.println("Erreur de modification de compte ..."+ex.getMessage());
+        }
+        return false;
     }
 
     @Override
     public boolean supprimerCompte() {
+        try{
+            String sql = "DELETE FROM utilisateur WHERE id = ?";
+            PreparedStatement pst = cnn.prepareStatement(sql);
+            pst.setInt(1, utilisateur.getId());
+            int result = pst.executeUpdate();
+            if(result > 0){
+                return true;
+            }
+            pst.close();
+        }catch(SQLException ex){
+            System.out.println("Erreur de suppression de compte ..."+ex.getMessage());
+        }
         return false;
-        // Implement the method here
     }
 
     @Override
-    public Utilisateur consulterCompte() {
-        return new Utilisateur();
-        // Implement the method here
+    public Utilisateur consulterCompte(int id) {
+        Utilisateur utilisateur = new Utilisateur();
+        try{
+            String sql = "SELECT * FROM utilisateur WHERE id = ?";
+            PreparedStatement pst = cnn.prepareStatement(sql);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                utilisateur.setId(rs.getInt("id"));
+                utilisateur.setNom(rs.getString("nom"));
+                utilisateur.setEmail(rs.getString("email"));
+                utilisateur.setMotDePasse(rs.getString("password"));
+                utilisateur.setTelephone(rs.getInt("telephone"));
+                utilisateur.setRole(rs.getString("role"));
+            }
+            pst.close();
+        }catch(SQLException ex){
+            System.out.println("Erreur de consultation de compte ..."+ex.getMessage());
+        }
+        return utilisateur;
     }
 
     @Override
-    public boolean modifierMotDePasse() {
+    public boolean modifierMotDePasse(String newPass) {
+        if( utilisateur.getEmail().equals("") || utilisateur.getMotDePasse().equals("") ){
+            return false;
+        }
+        try{
+            String sql = "SELECT * FROM utilisateur WHERE id = ?";
+            PreparedStatement pst = cnn.prepareStatement(sql);
+            pst.setInt(1, utilisateur.getId());
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                String sql2 = "UPDATE utilisateur SET password = ? WHERE id = ?";
+                PreparedStatement pst2 = cnn.prepareStatement(sql2);
+                pst2.setString(1, utilisateur.hashMotDePasse(newPass));
+                pst2.setInt(2, utilisateur.getId());
+                int result = pst2.executeUpdate();
+                if(result > 0){
+                    utilisateur.setMotDePasse(newPass);
+                    return true;
+                }
+                pst2.close();
+            }
+            pst.close();
+        }catch(SQLException ex){
+            System.out.println("Erreur de modification de mot de passe ..."+ex.getMessage());
+        }
         return false;
-        // Implement the method here
     }
 
 }
