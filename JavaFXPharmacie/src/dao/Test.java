@@ -4,6 +4,7 @@ public class Test {
     public static void main(String[] args) {
         Utilisateur utilisateur = new Utilisateur(2,"John Doe", "admin@gmail.com", "admin", 123456789, "ROLE_ADMIN");
         DaoUtilisateur daoUtilisateur = new DaoUtilisateur();
+        DaoClient daoClient = new DaoClient();
         daoUtilisateur.setUtilisateur(utilisateur);
 
         // if(daoUtilisateur.creerCompte()){
@@ -35,6 +36,9 @@ public class Test {
         // }else{
         //     System.out.println("Erreur lors de la modification du mot de passe");
         // }
-        System.out.println("Hello, World!");
+        // daoClient.Ajouter("1", "John Doe", "email", "adresse");
+        // daoClient.Modifier("1", "John Doe2", "email", "adresse");
+        // daoClient.Archiver("1");
+        
     }    
 }
