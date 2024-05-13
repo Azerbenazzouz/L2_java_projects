@@ -2,96 +2,100 @@ package entite;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 public class Utilisateur {
-    private int id;
-    private String nom;
-    private String email;
-    private String motDePasse;
-    private int telephone;
-    private String role;
+    private IntegerProperty id;
+    private StringProperty nom;
+    private StringProperty email;
+    private StringProperty motDePasse;
+    private IntegerProperty telephone;
+    private StringProperty role;
 
     public Utilisateur() {
     }
 
     public Utilisateur(int id, String nom, String email, String motDePasse, int telephone, String role) {
-        this.id = id;
-        this.nom = nom;
-        this.email = email;
-        this.motDePasse = hashMotDePasse(motDePasse);
-        this.telephone = telephone;
-        this.role = role;
+        this.id = new SimpleIntegerProperty(id);
+        this.nom = new SimpleStringProperty(nom);
+        this.email = new SimpleStringProperty(email);
+        this.motDePasse = new SimpleStringProperty(hashMotDePasse(motDePasse));
+        this.telephone = new SimpleIntegerProperty(telephone);
+        this.role = new SimpleStringProperty(role);
     }
 
     public Utilisateur(String nom, String email, String motDePasse, int telephone, String role) {
-        this.nom = nom;
-        this.email = email;
-        this.motDePasse = hashMotDePasse(motDePasse);
-        this.telephone = telephone;
-        this.role = role;
+        this.nom = new SimpleStringProperty(nom);
+        this.email = new SimpleStringProperty(email);
+        this.motDePasse = new SimpleStringProperty(hashMotDePasse(motDePasse));
+        this.telephone = new SimpleIntegerProperty(telephone);
+        this.role = new SimpleStringProperty(role);
     }
 
     public Utilisateur(String email, String motDePasse) {
-        this.email = email;
-        this.motDePasse = hashMotDePasse(motDePasse);
+        this.email = new SimpleStringProperty(email);
+        this.motDePasse = new SimpleStringProperty(hashMotDePasse(motDePasse));
     }
 
     public int getId() {
-        return id;
+        return id.get();
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id = new SimpleIntegerProperty(id);
     }
 
     public String getNom() {
-        return nom;
+        return nom.get();
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this.nom = new SimpleStringProperty(nom);
     }
 
     public String getEmail() {
-        return email;
+        return email.get();
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = new SimpleStringProperty(email);
     }
 
     public String getMotDePasse() {
-        return motDePasse;
+        return motDePasse.get();
     }
 
     public void setMotDePasse(String motDePasse) {
-        this.motDePasse = hashMotDePasse(motDePasse);
+        this.motDePasse = new SimpleStringProperty(hashMotDePasse(motDePasse));
     }
 
     public int getTelephone() {
-        return telephone;
+        return telephone.get();
     }
 
     public void setTelephone(int telephone) {
-        this.telephone = telephone;
+        this.telephone = new SimpleIntegerProperty(telephone);
     }
 
     public String getRole() {
-        return role;
+        return role.get();
     }
 
     public void setRole(String role) {
-        this.role = role;
+        this.role = new SimpleStringProperty(role);
     }
 
     @Override
     public String toString() {
         return "Utilisateur{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", email='" + email + '\'' +
-                ", motDePasse='" + motDePasse + '\'' +
-                ", telephone=" + telephone +
+                "id=" + id.get() +
+                ", nom='" + nom.get() + '\'' +
+                ", email='" + email.get() + '\'' +
+                ", motDePasse='" + motDePasse.get() + '\'' +
+                ", telephone=" + telephone.get() +
                 '}';
     }
 
