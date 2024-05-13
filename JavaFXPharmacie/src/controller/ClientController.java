@@ -9,11 +9,16 @@ import java.sql.SQLException;
 import org.w3c.dom.Node;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import utils.DbConnection;
 
@@ -64,10 +69,10 @@ public class ClientController {
 
     @FXML
     private void Consulter() {
-        String cin = this.tv.getSelectionModel().getSelectedItem().getId();
-        String nom = this.tv.getSelectionModel().getSelectedItem().getNom();
-        String adresse = this.tv.getSelectionModel().getSelectedItem().getAdresse();
-        String email = this.tv.getSelectionModel().getSelectedItem().getEmail();
+        String cin = this.tv.getSelectionModel().getSelectedItem().getCodeCli();
+        String nom = this.tv.getSelectionModel().getSelectedItem().getNomCli();
+        String adresse = this.tv.getSelectionModel().getSelectedItem().getAdrCli();
+        String email = this.tv.getSelectionModel().getSelectedItem().getEmailCli();
         Id.setText(cin);
         Nom.setText(nom);
         Adresse.setText(adresse);
