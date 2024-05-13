@@ -6,8 +6,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.w3c.dom.Node;
-
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
@@ -19,6 +17,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.Node;
+
 
 import utils.DbConnection;
 
