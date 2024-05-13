@@ -46,7 +46,7 @@ public class DaoUtilisateur implements IDaoUtilisateur{
             return false;
         }
         try{
-            String sql = "INSERT INTO `utilisateur` (`nom`, `email`, `password`, `telephone`, `role`) VALUES ('?', '?', '?', '?', '?')";
+            String sql = "INSERT INTO `utilisateur` (`nom`, `email`, `password`, `telephone`, `role`) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pst = cnn.prepareStatement(sql);
             pst.setString(1, utilisateur.getNom());
             pst.setString(2, utilisateur.getEmail());
