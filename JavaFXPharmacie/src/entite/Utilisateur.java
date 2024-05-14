@@ -8,7 +8,7 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 public class Utilisateur {
-    private IntegerProperty id;
+    private int id;
     private StringProperty nom;
     private StringProperty email;
     private StringProperty motDePasse;

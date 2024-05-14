@@ -69,6 +69,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void Ajouter() {
         DaoClient.Ajouter(Id.getText(), Nom.getText(), Email.getText(), Adresse.getText());
+        System.out.println("Ajouter");
         lister();
         remiseAzéro();
     }
@@ -121,9 +122,10 @@ public class FXMLDocumentController implements Initializable {
 
     public void lister() {
        // Connection cd = cn.seConnecter();
-         tv.getItems().clear();
+        tv.getItems().clear();
+        System.out.println("hello");
         try {
-            ResultSet rs = cd.createStatement().executeQuery("select * from client");
+            ResultSet rs = cd.createStatement().executeQuery("SELECT * FROM `client`");
             while (rs.next()) {
                 observableList.add(new Client(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
 
@@ -137,7 +139,7 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // ...........
+        // ............
         this.lister();
     }  
 }

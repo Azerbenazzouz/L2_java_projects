@@ -20,7 +20,7 @@
         </columns>
         <items>
             <FXCollections fx:factory="observableArrayList" fx:id="observableArrayList">
-               <Client codeCli="1" nomCli="A" emailCli="a" adrCli="a"/>
+               <!--<Client codeCli="1" nomCli="A" emailCli="a" adrCli="a"/>-->
             </FXCollections>
          </items>
       </TableView>
