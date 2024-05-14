@@ -44,7 +44,7 @@ public class FXMLDocumentController implements Initializable {
     
     
     @FXML
-    TableView<Client> tv = new TableView<>();
+    TableView<Client> tv = new TableView<Client>();
     @FXML
     TextField Id;
     @FXML
@@ -137,6 +137,7 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // ...........
+        this.lister();
     }  
 }

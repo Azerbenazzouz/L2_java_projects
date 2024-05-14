@@ -9,6 +9,13 @@ public class Client {
     private StringProperty adrCli;
     private StringProperty emailCli; 
 
+    public Client() {
+        this.codeCli = new SimpleStringProperty();
+        this.nomCli = new SimpleStringProperty();
+        this.adrCli = new SimpleStringProperty();
+        this.emailCli = new SimpleStringProperty();
+    }
+    
     public Client(String codeCli, String nomCli, String adrCli, String emailCli) {
         this.codeCli = new SimpleStringProperty(codeCli);
         this.nomCli = new SimpleStringProperty(nomCli);
