@@ -7,6 +7,8 @@ public class Medicament {
     private int qte;
     private String typeMed;
 
+    public Medicament() {
+    }
     public Medicament(int codeMed, String nomMed, Float prixMed, Integer qte, String typeMed) throws IllegalArgumentException {
         if(qte<0){
             throw new IllegalArgumentException("La quantité ne peut pas être négative");
