@@ -11,18 +11,18 @@
       <Button layoutX="719.0" layoutY="162.0" mnemonicParsing="false" onAction="#Archiver"   prefHeight="48.0" prefWidth="139.0" text="Archiver" />
       <Button layoutX="719.0" layoutY="33.0" mnemonicParsing="false" onAction="#Ajouter"   prefHeight="48.0" prefWidth="139.0" text="Ajouter" />
       <Button layoutX="719.0" layoutY="97.0" mnemonicParsing="false" onAction="#Modifier"  prefHeight="48.0" prefWidth="139.0" text="Modifier" />
-      <TableView layoutY="250.0" prefHeight="350.0" prefWidth="900.0" fx:id="tv">
+      <TableView layoutY="250.0" prefHeight="350.0" prefWidth="900.0" fx:id="tv" >
         <columns>
-          <TableColumn minWidth="225.0" prefWidth="75.0" text="Cin" fx:id="colId" />
-          <TableColumn minWidth="225.0" prefWidth="75.0" text="Nom" fx:id="colNom"/>
+            <TableColumn minWidth="225.0" prefWidth="75.0" text="Cin" fx:id="colId" />
+            <TableColumn minWidth="225.0" prefWidth="75.0" text="Nom" fx:id="colNom"/>
             <TableColumn minWidth="225.0" prefWidth="170.0" text="Email" fx:id="colEmail"/>
             <TableColumn minWidth="225.0" prefWidth="79.0" text="Adresse" fx:id="colAdresse"/>
         </columns>
         <items>
-          <FXCollections fx:factory="observableArrayList" fx:id="observableArrayList">
-            <Client codeCli="1" nomCli="A" emailCli="a" adrCli="a"/>
-         </FXCollections>
-        </items>
+            <FXCollections fx:factory="observableArrayList" fx:id="observableArrayList">
+               <Client codeCli="1" nomCli="A" emailCli="a" adrCli="a"/>
+            </FXCollections>
+         </items>
       </TableView>
       <TextField fx:id="Id" layoutX="302.0" layoutY="82.0" promptText="Cin" />
       <TextField fx:id="Nom" layoutX="494.0" layoutY="82.0" promptText="Nom" />
